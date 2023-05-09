@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationService} from "./user-authentication/service/authentication.service";
 import {AuthenticationGuard} from "./user-authentication/guard/authentication.guard";
 import {AuthenticationInterceptor} from "./user-authentication/interceptor/authentication.interceptor";
@@ -31,12 +31,13 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     OrderAppModule,
     NotificationModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [AuthenticationService, AuthenticationGuard, UserService, NotificationService, {
     provide: HTTP_INTERCEPTORS
     , useClass: AuthenticationInterceptor, multi: true
-  }] ,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
