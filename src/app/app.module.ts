@@ -11,18 +11,28 @@ import {UserService} from "./user-authentication/service/user.service";
 import {OrderAppModule} from "./order-app/order-app.module";
 import {NotificationModule} from "./notification/notification.module";
 import {NotificationService} from "./notification/service/notification.service";
-import {LoginComponent} from './user-authentication/login/login.component';
-import {RegisterComponent} from './user-authentication/register/register.component';
-import {UserComponent} from './user-authentication/user/user.component';
+import {LoginComponent} from './user-authentication/components/login/login.component';
+import {RegisterComponent} from './user-authentication/components/register/register.component';
+import {UserComponent} from './user-authentication/components/user/user.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {ActivityComponent} from './order-app/components/activity/activity.component';
+import {IndustrialOrderComponent} from './order-app/components/industrial-order/industrial-order.component';
+import {LicenceAreaComponent} from './order-app/components/licence-area/licence-area.component';
+import {OrderSubscriberComponent} from './order-app/components/order-subscriber/order-subscriber.component';
+import {RealStateOrderComponent} from './order-app/components/real-state-order/real-state-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    ActivityComponent,
+    IndustrialOrderComponent,
+    LicenceAreaComponent,
+    OrderSubscriberComponent,
+    RealStateOrderComponent
   ],
   imports: [
     BrowserModule,

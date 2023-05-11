@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthenticationService} from "../service/authentication.service";
+import {AuthenticationService} from "../../service/authentication.service";
 import {Router} from "@angular/router";
-import {NotificationService} from "../../notification/service/notification.service";
+import {NotificationService} from "../../../notification/service/notification.service";
 import {Subscription} from "rxjs";
-import {User} from "../model/user";
+import {User} from "../../model/user";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {NotificationType} from "../../notification/service/notification-type";
-import {HeaderType} from "../../enums/header-type";
+import {NotificationType} from "../../../notification/service/notification-type";
+import {HeaderType} from "../../../enums/header-type";
 
 @Component({
   selector: 'app-login',

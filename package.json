@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "npm": "npm install angular-notifier"
+    "npm": "ng generate component real-state-order"
   },
   "private": true,
   "dependencies": {

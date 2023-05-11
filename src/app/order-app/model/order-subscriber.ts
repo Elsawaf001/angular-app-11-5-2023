@@ -20,16 +20,16 @@ export class OrderSubscriber {
     this.name = orderSubscriber.name;
     this.address = orderSubscriber.address;
     this.sector = orderSubscriber.sector;
-    this.group = orderSubscriber.group_name;
+    this.group = orderSubscriber.group;
     this.area = orderSubscriber.area;
     this.block = orderSubscriber.block;
     this.state = orderSubscriber.state;
     this.branch = orderSubscriber.branch;
-    this.nationalId = orderSubscriber.national_id;
-    this.phoneNumber = orderSubscriber.phone_number;
-    this.facilityName = orderSubscriber.facility_name;
+    this.nationalId = orderSubscriber.nationalId;
+    this.phoneNumber = orderSubscriber.phoneNumber;
+    this.facilityName = orderSubscriber.facilityName;
     this.balance = orderSubscriber.balance;
-    this.secondPhoneNumber = orderSubscriber.second_phone_number;
+    this.secondPhoneNumber = orderSubscriber.secondPhoneNumber;
   }
 }
 
