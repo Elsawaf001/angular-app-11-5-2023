@@ -21,6 +21,7 @@ import {IndustrialOrderComponent} from './order-app/components/industrial-order/
 import {LicenceAreaComponent} from './order-app/components/licence-area/licence-area.component';
 import {OrderSubscriberComponent} from './order-app/components/order-subscriber/order-subscriber.component';
 import {RealStateOrderComponent} from './order-app/components/real-state-order/real-state-order.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {RealStateOrderComponent} from './order-app/components/real-state-order/r
     NotificationModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthenticationService, AuthenticationGuard, UserService, NotificationService, {
     provide: HTTP_INTERCEPTORS
