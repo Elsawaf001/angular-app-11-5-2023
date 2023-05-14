@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 100px">
+<div class="container" style="margin-top: 100px" toastContainer>
   <div class="d-flex justify-content-center h-50">
     <div class="user_card">
       <div class="d-flex justify-content-center">
@@ -7,17 +7,17 @@
         </div>
       </div>
       <div class="d-flex justify-content-center form_container">
-        <form >
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm.value)" >
           <div class="input-group mb-3 ">
             <div class="input-group-append">
                         <span class="input-group-text">
                                   <i class="fas fa-user"></i>
                         </span>
             </div>
-            <input #userNameInput="ngModel" class="form-control" name="username" ngModel placeholder="Username"
+            <input  class="form-control" name="userName" ngModel #userNameInput="ngModel" placeholder="Username"
                    required type="text">
           </div>
-          <span class="help-block" style="color: red">Please enter a username</span>
+          <span class="help-block" style="color: red" *ngIf="userNameInput.invalid &&userNameInput.touched">Please enter a username</span>
           <div class="input-group mb-2">
             <div class="input-group-append">
                 <span class="input-group-text">
@@ -25,15 +25,15 @@
                 </span>
 
             </div>
-            <input class="form-control" name="password" placeholder="Password" required type="password">
+            <input toastContainer ngModel #passwordInput = "ngModel"  class="form-control" name="password" placeholder="Password" required type="password">
 
           </div>
-          <span class="help-block" style="color: red"> Please Enter A Password</span>
+          <span class="help-block" style="color: red" *ngIf="passwordInput.valid && passwordInput.touched "> Please Enter A Password</span>
           <div class="d-flex justify-content-center mt-3 login_container">
-            <button class="btn login_btn" name="button" type="submit">
-              <i class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
-              <span>loading....</span>
-              <span>Login</span>
+            <button  class="btn login_btn" name="button" type="submit" [disabled]="loginForm.invalid || showLoading" >
+              <i *ngIf="showLoading" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
+              <span *ngIf="showLoading">loading....</span>
+              <span *ngIf="!showLoading">Login</span>
             </button>
           </div>
         </form>

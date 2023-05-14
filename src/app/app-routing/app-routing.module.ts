@@ -13,11 +13,11 @@ const routes: Routes = [
   {path: "login", component: LoginComponent} ,
   {path: "register", component: RegisterComponent} ,
   {path: "user/management", component: UserComponent} ,
-  {path: "", redirectTo: "/login", pathMatch: "full"} ,
   {path: "activity" , component:ActivityComponent} ,
   {path: "order" , component:IndustrialOrderComponent} ,
   {path: "licence" , component : LicenceAreaComponent} ,
-  {path: "subscriber" , component :OrderSubscriberComponent}
+  {path: "subscriber" , component :OrderSubscriberComponent},
+  {path: "", redirectTo: "/login", pathMatch: "full"}
 
 ];
 

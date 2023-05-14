@@ -7,6 +7,7 @@ import {User} from "../../model/user";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {NotificationType} from "../../../notification/service/notification-type";
 import {HeaderType} from "../../../enums/header-type";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnDestroy, OnInit {
   private subscriptions: Subscription[] = [];
 
   constructor(private authenticationService: AuthenticationService,
-              private router: Router, private notificationService: NotificationService) {
+              private router: Router, private notificationService: NotificationService ,private toastr:ToastrService) {
   }
 
 
@@ -26,8 +27,7 @@ export class LoginComponent implements OnDestroy, OnInit {
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
-  // i will create a method to show the spinner and hide it
-  // and add user subscription
+
   public onLogin(user: User): void {
     this.showLoading = true;
     console.log(user)
@@ -35,6 +35,7 @@ export class LoginComponent implements OnDestroy, OnInit {
       this.authenticationService.login(user).subscribe(
         (response: HttpResponse<User>) => {
           const token = response.headers.get(HeaderType.JWT_TOKEN);
+          console.log("token is " + token);
           if (token != null) {
             this.authenticationService.saveToken(token);
             if (response.body != null) {
@@ -51,7 +52,8 @@ export class LoginComponent implements OnDestroy, OnInit {
 
         (errorResponse: HttpErrorResponse) => {
           console.log(errorResponse);
-          this.sendErrorNotification(NotificationType.error, errorResponse.error.message());
+          // this.toastr.error("Communication with server Failed" , "Login Error")
+          this.sendErrorNotification(NotificationType.error, errorResponse.message);
           this.showLoading = false;
         }
       )

@@ -11,25 +11,18 @@ export class NotificationService {
   }
 
   public notify(type: NotificationType, message: string) {
-    switch (type) {
-      case NotificationType.error:
-        this.notifier.error(message);
-        break;
-      case NotificationType.success:
-        this.notifier.success(message);
-        break;
-      case NotificationType.warning:
-        this.notifier.warning(message);
-        break;
-      case NotificationType.info:
-        this.notifier.info(message);
-        break
+    if (type == NotificationType.error){
+      this.notifier.error(message);
+    }
+   else if (type == NotificationType.success){  this.notifier.success(message);}
+    else if (type == NotificationType.warning){    this.notifier.warning(message);}
+      else if (type == NotificationType.info){this.notifier.info(message);}
+      else { this.notifier.info(message);}
 
-      default :
-        this.notifier.show(message)
+
     }
 
   }
-}
+
 
 

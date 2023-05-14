@@ -16,12 +16,8 @@ import {RegisterComponent} from './user-authentication/components/register/regis
 import {UserComponent} from './user-authentication/components/user/user.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {ActivityComponent} from './order-app/components/activity/activity.component';
-import {IndustrialOrderComponent} from './order-app/components/industrial-order/industrial-order.component';
-import {LicenceAreaComponent} from './order-app/components/licence-area/licence-area.component';
-import {OrderSubscriberComponent} from './order-app/components/order-subscriber/order-subscriber.component';
-import {RealStateOrderComponent} from './order-app/components/real-state-order/real-state-order.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ToastContainerDirective, ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -29,23 +25,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    ActivityComponent,
-    IndustrialOrderComponent,
-    LicenceAreaComponent,
-    OrderSubscriberComponent,
-    RealStateOrderComponent
+
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    OrderAppModule,
-    NotificationModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    FormsModule,
-    BrowserAnimationsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        OrderAppModule,
+        NotificationModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot()
+    ],
   providers: [AuthenticationService, AuthenticationGuard, UserService, NotificationService, {
     provide: HTTP_INTERCEPTORS
     , useClass: AuthenticationInterceptor, multi: true
