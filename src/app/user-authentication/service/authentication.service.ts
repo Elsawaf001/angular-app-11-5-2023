@@ -24,8 +24,8 @@ export class AuthenticationService {
   }
 
 
-  public register(user: User): Observable<User | HttpErrorResponse> {
-    return this.http.post<User | HttpErrorResponse>(`${this.host}/user/register`, user);
+  public register(user: User): Observable<User> {
+    return this.http.post<User>(`${this.host}/user/register`, user);
   }
 
   public logout(): void {

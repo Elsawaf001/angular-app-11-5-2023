@@ -53,7 +53,7 @@ export class LoginComponent implements OnDestroy, OnInit {
         (errorResponse: HttpErrorResponse) => {
           console.log(errorResponse);
           // this.toastr.error("Communication with server Failed" , "Login Error")
-          this.sendErrorNotification(NotificationType.error, errorResponse.message);
+          this.sendErrorNotification(NotificationType.error, errorResponse.error.message);
           this.showLoading = false;
         }
       )

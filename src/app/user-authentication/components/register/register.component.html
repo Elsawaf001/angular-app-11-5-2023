@@ -1,1 +1,76 @@
-<p>register works!</p>
+
+<div class="container" style="margin-top: 100px">
+  <div class="d-flex justify-content-center h-50">
+    <div class="user-card">
+      <div class="d-flex justify-content-center">
+        <div style="margin-top: 10px ; margin-bottom: 10px ;">
+          <h3>User Management Portal </h3>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm.value)" >
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fas fa-user"></i>
+            </span>
+            </div>
+            <input type="text" class="form-control" ngModel #firstNameInput="ngModel" required placeholder="First Name" name="firstName">
+          </div>
+<span class="help-block" *ngIf="firstNameInput.invalid && firstNameInput.touched " style="color: red">FirstName Required</span>
+
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fas fa-user"></i>
+            </span>
+            </div>
+            <input type="text" class="form-control" ngModel #lastNameInput="ngModel" required placeholder="Last Name" name="lastName">
+          </div>
+          <span class="help-block" *ngIf="lastNameInput.invalid && lastNameInput.touched " style="color: red">LastName Required</span>
+
+
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fas fa-id-card"></i>
+            </span>
+            </div>
+            <input type="text" class="form-control" ngModel #userNameInput="ngModel" required placeholder="User Name" name="userName">
+          </div>
+          <span class="help-block" *ngIf="userNameInput.invalid && userNameInput.touched " style="color: red">LastName Required</span>
+
+
+
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fas fa-id-card"></i>
+            </span>
+            </div>
+            <input type="text" class="form-control" ngModel #emailInput="ngModel" required placeholder="Email" name="email" email>
+          </div>
+          <span class="help-block" *ngIf="emailInput.invalid && emailInput.touched " style="color: red">Email Required</span>
+
+<div class="d-flex justify-content-center mat-3 login_container">
+  <button [disabled]="registerForm.invalid || showLoading" type="submit" name="submit" class="btn login_btn">
+<i *ngIf="showLoading" class="fas fa-spinner"></i>&nbsp;&nbsp;
+<span *ngIf="showLoading">Loading......</span>
+    <span *ngIf="!showLoading">Register</span>
+
+  </button>
+</div>
+
+
+        </form>
+      </div>
+
+      <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+          Already Have an Account ?  <a routerLink="/login" class="ml-2" style="color: #1b4f72">Log In</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
