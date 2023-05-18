@@ -1,1 +1,43 @@
-<p>activity works!</p>
+<div class="container-sm text-right" dir="rtl">
+  <div class="row">
+    <div class="col" >
+      <mat-form-field>
+        <mat-label>الانشطة</mat-label>
+        <mat-select #activityVar [(ngModel)]="selectedActivity">
+          <mat-option style="color: darkred  "><button class="btn btn-primary"><i class="fa-solid fa-plus"></i> ADD</button></mat-option>
+          <mat-option ><button class="text-right badge badge-danger">غير معرف</button></mat-option>
+          <mat-option  *ngFor="let activity of activities " [value]="activity">{{activity.activityName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col" *ngIf="selectedActivity">
+      <mat-form-field >
+        <mat-label>{{ selectedActivity.id }}</mat-label>
+        <input matInput [value]="selectedActivity.id.toString()"  [readonly]="isReadOnly">
+      </mat-form-field>
+    </div>
+    <div class="col" *ngIf="selectedActivity">
+      <mat-form-field >
+        <mat-label>{{ selectedActivity.activityName }}</mat-label>
+        <input matInput [value]="selectedActivity.activityName" [readonly]="isReadOnly"   [(ngModel)]="newActivityName">
+      </mat-form-field>
+    </div>
+    <div class="col" *ngIf="selectedActivity">
+      <td>
+        <mat-form-field *ngIf="selectedActivity">
+          <mat-label>{{ selectedActivity.activityAddress }}</mat-label>
+          <input matInput [value]="selectedActivity.activityAddress" [readonly]="isReadOnly"   [(ngModel)]="newActivityAddress">
+        </mat-form-field>
+      </td>
+    </div>
+    <div class="col" *ngIf="selectedActivity">
+      <button class="btn btn-outline-info" (click)="onEdit()"><i class="fas fa-edit"></i> </button>
+      <button class="btn btn-outline-danger" (click)="onSave()"><i class="fa-solid fa-floppy-disk"></i> </button>
+      <button class="btn btn-outline-danger"><i class="fas fa-trash"></i> </button>
+    </div>
+
+  </div>
+</div>
+
+
+

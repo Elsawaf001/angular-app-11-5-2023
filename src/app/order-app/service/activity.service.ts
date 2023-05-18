@@ -4,11 +4,13 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Activity} from "../model/activity";
 import {CustomHttpResponse} from "../../user-authentication/model/custom-http-response";
+import {User} from "../../user-authentication/model/user";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityService {
+
 
   private host: string = `${environment.apiUrl}/app`;
 
@@ -26,11 +28,8 @@ export class ActivityService {
   }
 
 
-  public createActivity(name : string, address:string):Observable<Activity>{
-    const formData = new FormData();
-    formData.append("name",name);
-    formData.append("address" ,address);
-    return this.http.post<Activity>(`${this.host}/createActivity` , formData);
+  public createActivity(activity : Activity):Observable<Activity>{
+    return this.http.post<Activity>(`${this.host}/createActivity` , activity);
   }
 
   public updateActivity(currentActivityName : string ,newName : string, address:string):Observable<Activity>{
@@ -47,6 +46,17 @@ export class ActivityService {
     return this.http.delete<CustomHttpResponse>(`${this.host}/deleteActivity/${activityName}`);
   }
 
+  public addActivityToLocalCache(activities:Activity[]){
+    localStorage.setItem('activities',JSON.stringify(activities))
+  }
 
+
+  public getActivitiesToLocalCache():(Activity[] | null){
+
+    if (localStorage.getItem('activities')){
+      return JSON.parse(localStorage.getItem('activities') ?? '');
+    }
+    return null;
+  }
 
 }

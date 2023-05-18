@@ -27,18 +27,19 @@ import {ToastContainerDirective, ToastrModule} from "ngx-toastr";
     UserComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        OrderAppModule,
-        NotificationModule,
-        AppRoutingModule,
-        FontAwesomeModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        ToastrModule.forRoot()
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    OrderAppModule,
+    NotificationModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ToastContainerDirective
+  ],
   providers: [AuthenticationService, AuthenticationGuard, UserService, NotificationService, {
     provide: HTTP_INTERCEPTORS
     , useClass: AuthenticationInterceptor, multi: true
