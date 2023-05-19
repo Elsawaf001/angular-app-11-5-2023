@@ -18,6 +18,7 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastContainerDirective, ToastrModule} from "ngx-toastr";
+import { TemplateFormComponent } from './learning-area/template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ToastContainerDirective, ToastrModule} from "ngx-toastr";
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    TemplateFormComponent,
 
   ],
   imports: [
